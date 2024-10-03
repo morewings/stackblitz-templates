@@ -1,0 +1,7 @@
+.app {
+    color: green;
+
+    & .app-internal {
+        font-style: italic;
+    }
+}
