@@ -3,7 +3,7 @@ import eslintTS from 'typescript-eslint';
 import tailwindPlugin from 'eslint-plugin-tailwindcss';
 import configReactRecommended from 'eslint-plugin-react/configs/recommended.js';
 import configReactJSXRuntime from 'eslint-plugin-react/configs/jsx-runtime.js';
-import {fixupPluginRules} from '@eslint/compat';
+import { fixupPluginRules } from '@eslint/compat';
 import pluginReactHooks from 'eslint-plugin-react-hooks';
 import pluginReactRefresh from 'eslint-plugin-react-refresh';
 
@@ -26,9 +26,15 @@ export default [
              * Allow empty arrow functions `() => {}`, while keeping other empty functions restricted
              * @see https://eslint.org/docs/latest/rules/no-empty-function#allow-arrowfunctions
              */
-            '@typescript-eslint/no-empty-function': ['error', {allow: ['arrowFunctions']}],
+            '@typescript-eslint/no-empty-function': [
+                'error',
+                { allow: ['arrowFunctions'] },
+            ],
             /* Required by vite */
-            'react-refresh/only-export-components': ['warn', {allowConstantExport: true}],
+            'react-refresh/only-export-components': [
+                'warn',
+                { allowConstantExport: true },
+            ],
             '@typescript-eslint/consistent-type-definitions': ['error', 'type'],
             /**
              * Allow unused variables with names stating with '_'
@@ -46,28 +52,5 @@ export default [
                 },
             ],
         },
-    }
-]
-
-// export default tseslint.config(
-//   { ignores: ['dist'] },
-//   {
-//     extends: [js.configs.recommended, ...tseslint.configs.recommended],
-//     files: ['**/*.{ts,tsx}'],
-//     languageOptions: {
-//       ecmaVersion: 2020,
-//       globals: globals.browser,
-//     },
-//     plugins: {
-//       'react-hooks': reactHooks,
-//       'react-refresh': reactRefresh,
-//     },
-//     rules: {
-//       ...reactHooks.configs.recommended.rules,
-//       'react-refresh/only-export-components': [
-//         'warn',
-//         { allowConstantExport: true },
-//       ],
-//     },
-//   },
-// )
+    },
+];
