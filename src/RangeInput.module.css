@@ -1,0 +1,148 @@
+.wrapper {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 12px;
+}
+
+.label {
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.input {
+    --track-height: 4px;
+    --slider-size: 18px;
+    --track-color: plum;
+    --track-color-active: mediumPurple;
+    --thumb-color: seaGreen;
+    --thumb-color-active: chartreuse;
+    --disabled-color: lightGray;
+
+    /* we need this to reset browser styles */
+    all: unset;
+    flex-grow: 1;
+    flex-shrink: 0;
+    margin: 0;
+    width: 222px;
+}
+
+/* track styles for webkit and Blink browsers */
+.input::-webkit-slider-runnable-track {
+    appearance: none;
+    background: var(--track-color);
+    height: var(--track-height);
+    cursor: col-resize;
+}
+
+/* track styles for Firefox */
+.input::-moz-range-track {
+    background: var(--track-color);
+    height: var(--track-height);
+    border-radius: 6px;
+    cursor: col-resize;
+}
+
+/* thumb styles for webkit and Blink browsers */
+.input::-webkit-slider-thumb {
+    appearance: none;
+    background-color: var(--thumb-color);
+    border: none;
+    border-radius: 50%;
+    cursor: grab;
+    height: var(--slider-size);
+    width: var(--slider-size);
+    margin-top: calc(var(--track-height) / 2 - var(--slider-size) / 2);
+}
+
+/* thumb styles for Firefox */
+.input::-moz-range-thumb {
+    background-color: var(--thumb-color);
+    border: none;
+    cursor: grab;
+    height: var(--slider-size);
+    width: var(--slider-size);
+}
+
+.input:focus-visible {
+    outline: none;
+}
+
+.input:disabled::-moz-range-thumb {
+    background-color: var(--disabled-color);
+    cursor: not-allowed;
+}
+
+.input:disabled::-webkit-slider-thumb {
+    background-color: var(--disabled-color);
+    cursor: not-allowed;
+}
+
+.input:disabled::-moz-range-track {
+    background: var(--disabled-color);
+    cursor: not-allowed;
+}
+
+.input:disabled::-webkit-slider-runnable-track {
+    background: var(--disabled-color);
+    cursor: not-allowed;
+}
+
+.input:hover:not(:disabled)::-moz-range-track {
+    background: var(--track-color-active);
+}
+
+.input:hover:not(:disabled)::-webkit-slider-runnable-track {
+    background: var(--track-color-active);
+}
+
+.input:active:not(:disabled)::-moz-range-thumb {
+    cursor: grabbing;
+}
+
+&::-webkit-slider-thumb {
+    cursor: grabbing;
+}
+
+.input:active:not(:disabled)::-moz-range-thumb {
+    background-color: var(--thumb-color-active);
+}
+
+.input:active:not(:disabled)::-webkit-slider-thumb {
+    background-color: var(--thumb-color-active);
+}
+
+.input:active:not(:disabled)::-moz-range-track {
+    background: var(--track-color-active);
+}
+
+.input:active:not(:disabled)::-webkit-slider-runnable-track {
+    background: var(--track-color-active);
+}
+
+.input-wrapper {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+.scale {
+    display: flex;
+    flex-direction: row;
+    /* Required to distribute marks */
+    justify-content: space-between;
+    width: 100%;
+}
+
+.scale option {
+    padding: 6px 0 0 0;
+    font-size: 16px;
+    user-select: none;
+    cursor: default;
+}
+
+.output {
+    font-variant-numeric: tabular-nums;
+    width: 3ch;
+    text-align: right;
+}
