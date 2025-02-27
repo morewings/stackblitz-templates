@@ -1,7 +1,4 @@
 .app {
-    color: green;
-
-    & .app-internal {
-        font-style: italic;
-    }
+    color: black;
+    font-size: 24px;
 }
