@@ -1,5 +1,6 @@
 import eslint from '@eslint/js';
 import eslintTS from 'typescript-eslint';
+import tailwindPlugin from 'eslint-plugin-tailwindcss';
 import configReactRecommended from 'eslint-plugin-react/configs/recommended.js';
 import configReactJSXRuntime from 'eslint-plugin-react/configs/jsx-runtime.js';
 import {fixupPluginRules} from '@eslint/compat';
@@ -10,6 +11,7 @@ export default [
     eslint.configs.recommended,
     ...eslintTS.configs.recommended,
     ...eslintTS.configs.stylistic,
+    ...tailwindPlugin.configs['flat/recommended'],
     configReactRecommended,
     configReactJSXRuntime,
     {
